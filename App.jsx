@@ -1,5 +1,6 @@
 import Header from './Components/Header'
 import Cover from './Components/Cover'
+import Booking from './Components/booking'
 import './App.css'
 const App=()=>
 {
@@ -7,6 +8,7 @@ const App=()=>
         <>
         <Header/>
         <Cover/>
+        <Booking/>
         </>
     )
 

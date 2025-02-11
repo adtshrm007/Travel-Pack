@@ -11,9 +11,11 @@ export default function Cover()
             </div>
             <div className='booking'>
                 <div className='ticketbooking'>
-                    
+                    <p>Book Your Tickets</p>
+                    <i class="fa-solid fa-plane-departure"></i>
                 </div>
             </div>
+            
             
         </div>
     )

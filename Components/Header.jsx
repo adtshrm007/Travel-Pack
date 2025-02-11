@@ -2,7 +2,7 @@ export default function Header(){
     return(
         <div className="header">
             <div className="logoTagline">
-            <p className="logo">Jet Set Journey</p>
+            <p className="logo">FLIGHT</p>
             <p className="tagline">Book Your Flight</p>
             </div>
             <div className="options">
