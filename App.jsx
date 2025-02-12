@@ -6,9 +6,8 @@ const App=()=>
 {
     return(
         <>
-        <Header/>
+        
         <Cover/>
-        <Booking/>
         </>
     )
 

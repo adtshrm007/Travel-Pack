@@ -1,225 +1,232 @@
+/* Reset Default Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.header {
-    margin-top: 20px;
-    max-width: 100%;
-    height: 70px;
+/* Main Section */
+.Main {
+  width: 100%;
+  height: 100vh; /* Use full viewport height */
+  position: relative;
+  overflow: hidden;
+
+}
+
+/* Background Video Styling */
+.Main video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures video covers the full area */
+  filter: brightness(0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Moves video to the background */
+}
+.lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    z-index: -1;
+}
+
+/* Individual Vertical Line */
+.line {
+    width: 1px;
+    height: 100%;
+    filter:brightness(0.4);
+    background-color:white;
+    
+}
+.menu
+{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 5%;
+    margin-top: 40px;
+    margin-left: 30px;
 }
-
-.logoTagline {
-    width: 30%;
-    text-align: center;
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: 600;
-    color: #12151C;
-}
-
-.tagline {
-    font-size: 18px;
-    color: gray;
-}
-
-.options {
+.options
+{
     width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    color: gray;
-}
-
-.options p {
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-}
-
-.options p:hover {
-    color: #12151C;
-    font-weight: 500;
-}
-
-.book {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
     justify-content: space-evenly;
 }
 
-.tickets {
-    width: 100px;
-    height: 35px;
-    background-color: #34589B;
+/* Logo Styling */
+.logo {
+  width: 10%;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 1; /* Keeps it above the video */
+}
+.login
+{
+    width: 10%;
+    z-index: 1;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+.numbers {
+    width: 10%;
+    height: 100%;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Evenly spaces items */
+    justify-items: center;
+    gap: 10px; /* Spacing between numbers */
+}
+
+.numbers p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.765);
+    font-weight: 400;
+}
+.header {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+    top: 30px;
+    cursor: pointer;
+  }
+  .logo {
+    width: 20%;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 1; /* Keeps it above the video */
+  }
+
+  .image {
+    position: absolute; /* Ensures the image appears over the background */
+    top: 50%; /* Centers it vertically */
+    left: 51%; /* Centers it horizontally */
+    transform: translate(-50%, -45%); /* Centers the element more accurately */
+    width: 80%; /* Adjust width */
+    height: 80%; /* Adjust height */
+    z-index: 1; /* Makes sure the image is above the video */
+    box-shadow: 10px;
+  }
+  .img
+  {
+    width: 80%;
+    height: 90%;
+    
+    box-shadow: 2px;
+  }
+  .img img{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .info1
+  {
+    width: 500px;
+    height: 250px;
+    z-index: 2;
+    position: relative;
+    left: -150px;
+    top: -20px;
+    text-align: left;
+  }
+
+  .read
+  {
+    width: 140px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.886);
+    position: relative;
+    display: flex;
+    
+    justify-content: space-evenly;
+  }
+  .read i{
+    font-size: 40px;
+  }
+  .read p{
+    position: relative;
+    top: 8px;
+    text-align: center;
+  }
+
+  .fairytale
+  {
+    color: white;
+    font-size: 70px;
+    font-weight: 600;
+  }
+  .india
+  {
+    color: white;
+    font-size: 70px;
+    font-weight: 600;
+  }
+  .info2
+  {
+    color: rgba(255, 255, 255, 0.886);
+    font-size: 18px;
+  }
+  .basic
+  {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  .info{
+    display: flex;
+    width: 800px;
+    height: 1000px;
+    justify-content: space-around;
+  }
+.info3
+{
+    width: 200px;
+    height: 100px;
+    color: white;
 }
-
-.tickets p {
+.land
+{
     color: white;
     font-weight: 500;
-    font-size: 16px;
-    background-color: #34589B;
 }
-
-.tickets:hover {
-    background-color: #2b477c;
-    transform: scale(1.05);
-}
-
-
-
-/* Cover Section */
-.Cover {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url("assest/Cover\ Image.jpg");
-    background-size: cover;
-    
-}
-
-/* Title */
-.title {
-    width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: transparent;
-    margin-bottom: 100px;
-}
-
-.ss {
-    text-align: center;
-    background: transparent;
-}
-
-.ss p {
-    font-size: 90px;
-    font-weight: 800;
-    background-color: transparent;
-    color: white;
-}
-
-.booking
+.subland
 {
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
+    color: rgba(255, 255, 255, 0.735);
 }
-.ticketbooking
+.info4
 {
-    width: 20%;
-    height: 100%;
-    background-color: #2b477c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    gap:8px;
-    cursor: pointer;
-}
-.ticketbooking p{
-    background-color: transparent;
-    font-size: 18px;
-    color: white;
-}
-.fa-solid
-{
-    background-color: transparent;
-   
-    color: white;
-}
-.destinations
-{
-    width: 100%;
+    width: 200px;
     height: 100px;
-    position: relative;
-    top: -25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.abc
-{
-    width: 80%;
-    height: 120px;
-    background-color: white;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    display: flex;
-    justify-content: center;
     
 }
-.select
+.info5
 {
-    width: 20px;
-    height: 20px;
-    outline: 1px solid;
-    border-color: #2b477c;
-    border-radius: 100%;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 200px;
+    height: 100px;
 }
-.selectmenu
-{
-    outline: none;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        gap: 10px;
-    }
-    
-    .logoTagline, .options, .book {
-        width: 100%;
-        text-align: center;
-    }
-
-    .options {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .tickets {
-        width: 120px;
-        height: 45px;
-    }
-
-    .ss p {
-        font-size: 36px;
-    }
-    
-    img {
-        margin-left: 0;
-        border-radius: 50px;
-    }
+  .logo {
+    font-size: 1.5rem;
+    left: 10px;
+    top: 10px;
+  }
 }
