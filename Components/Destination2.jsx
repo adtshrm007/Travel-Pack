@@ -1,5 +1,6 @@
-import VideoBg from "../assest/CoverVideo.mp4";
-import image1 from "../assest/IndiaImage.jpg";
+import VideoBg from "../assest/CoverVideo2.mp4";
+import image2 from "../assest/NorwayImage.jpg";
+
 export default function Cover() {
   return (
     <div className="Main">
@@ -30,22 +31,21 @@ export default function Cover() {
         </div>
       </div>
       <div className="numbers">
-        <a href="/">01</a>
-        <a href="//">02</a>
+      <a href="destination1">01</a>
+        <a href="destination2">02</a>
         <a href="">03</a>
         <a href="">04</a>
       </div>
       <div className="image">
         <div className="basic">
           <div className="img">
-            <img src={image1}></img>
+            <img src={image2}></img>
           </div>
           <div className="info1">
-            <p className="fairytale">FAIRYTALE</p>
-            <p className="india">INDIA</p>
+            <p className="fairytale">BEAUTY</p>
+            <p className="india">OF NORWAY</p>
             <p className="info2">
-              We have collected the best ideas for planning a trip that will
-              help you to feel the history and beauty of this wonderful country.
+              We're happy to help you find some ideas for planning your trip well helps you get what you want and find the experience you wish for.
             </p>
             <div className="read">
               <i class="fa-sharp fa-solid fa-circle-down"></i>
@@ -63,8 +63,8 @@ export default function Cover() {
         <p className="subland">A great opportunity to relax from worries in the best beaches in India</p>
         </div>
         <div className="info5">
-        <p className="land">Golden Triangle</p>
-        <p className="subland">Witness the magnificent Taj Mahal and witness the heritage of Delhi</p>
+        <p className="land">Land of Tiger</p>
+        <p className="subland">One of the main attractions for the widlife lovers around the world</p>
         </div>
         </div>
       </div>
