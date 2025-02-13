@@ -1,235 +1,235 @@
 /* Reset Default Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Main Section */
-.Main {
-  width: 100%;
-  height: 100vh; /* Use full viewport height */
-  position: relative;
-  overflow: hidden;
-
-}
-
-/* Background Video Styling */
-.Main video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures video covers the full area */
-  filter: brightness(0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Moves video to the background */
-}
-.lines {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  /* Main Section */
+  .Main {
+    width: 100%;
+    height: 100vh; /* Use full viewport height */
+    position: relative;
+    overflow: hidden;
+  
+  }
+  
+  /* Background Video Styling */
+  .Main video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the full area */
+    filter: brightness(0.4);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    z-index: -1;
-}
-
-/* Individual Vertical Line */
-.line {
-    width: 1px;
-    height: 100%;
-    filter:brightness(0.4);
-    background-color:white;
-    
-}
-.menu
-{
-    width: 80%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-left: 30px;
-}
-.options
-{
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    justify-content: space-evenly;
-}
-
-/* Logo Styling */
-.logo {
-  width: 10%;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  z-index: 1; /* Keeps it above the video */
-}
-.login
-{
-    width: 10%;
-    z-index: 1;
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-}
-.numbers {
-    width: 10%;
-    height: 100%;
-    margin-top: 80px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Evenly spaces items */
-    justify-items: center;
-    gap: 30px; /* Spacing between numbers */
-    
-}
-
-.numbers a {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.765);
-    font-weight: 400;
-    text-decoration: none;
-}
-.header {
-    position: relative;
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    z-index: 1;
-    top: 30px;
-    cursor: pointer;
+    z-index: -1; /* Moves video to the background */
   }
+  .lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      z-index: -1;
+  }
+  
+  /* Individual Vertical Line */
+  .line {
+      width: 1px;
+      height: 100%;
+      filter:brightness(0.4);
+      background-color:white;
+      
+  }
+  .menu
+  {
+      width: 80%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      margin-left: 30px;
+  }
+  .options
+  {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      justify-content: space-evenly;
+  }
+  
+  /* Logo Styling */
   .logo {
-    width: 20%;
+    width: 10%;
     color: white;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: bold;
     z-index: 1; /* Keeps it above the video */
   }
-
-  .image {
-    position: absolute; /* Ensures the image appears over the background */
-    top: 50%; /* Centers it vertically */
-    left: 51%; /* Centers it horizontally */
-    transform: translate(-50%, -45%); /* Centers the element more accurately */
-    width: 80%; /* Adjust width */
-    height: 80%; /* Adjust height */
-    z-index: 1; /* Makes sure the image is above the video */
-    box-shadow: 10px;
-  }
-  .img
+  .login
   {
-    width: 80%;
-    height: 90%;
-    
-    box-shadow: 2px;
+      width: 10%;
+      z-index: 1;
+      color: white;
+      display: flex;
+      justify-content: space-evenly;
   }
-  .img img{
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  .numbers {
+      width: 10%;
+      height: 100%;
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Evenly spaces items */
+      justify-items: center;
+      gap: 30px; /* Spacing between numbers */
+      
   }
-  .info1
+  
+  .numbers a {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.765);
+      font-weight: 400;
+      text-decoration: none;
+  }
+  .header {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      z-index: 1;
+      top: 30px;
+      cursor: pointer;
+    }
+    .logo {
+      width: 20%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      z-index: 1; /* Keeps it above the video */
+    }
+  
+    .image {
+      position: absolute; /* Ensures the image appears over the background */
+      top: 50%; /* Centers it vertically */
+      left: 51%; /* Centers it horizontally */
+      transform: translate(-50%, -45%); /* Centers the element more accurately */
+      width: 80%; /* Adjust width */
+      height: 80%; /* Adjust height */
+      z-index: 1; /* Makes sure the image is above the video */
+      box-shadow: 10px;
+    }
+    .img
+    {
+      width: 80%;
+      height: 90%;
+      
+      box-shadow: 2px;
+    }
+    .img img{
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .info1
+    {
+      width: 500px;
+      height: 250px;
+      z-index: 2;
+      position: relative;
+      left: -150px;
+      top: -20px;
+      text-align: left;
+    }
+  
+    .read
+    {
+      width: 140px;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.886);
+      position: relative;
+      display: flex;
+      
+      justify-content: space-evenly;
+    }
+    .read i{
+      font-size: 40px;
+    }
+    .read p{
+      position: relative;
+      top: 8px;
+      text-align: center;
+    }
+  
+    .fairytale
+    {
+      color: white;
+      font-size: 60px;
+      font-weight: 600;
+    }
+    .india
+    {
+      color: white;
+      font-size: 60px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+    .info2
+    {
+      color: rgba(255, 255, 255, 0.886);
+      font-size: 18px;
+    }
+    .basic
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .info{
+      display: flex;
+      width: 800px;
+      height: 1000px;
+      justify-content: space-around;
+    }
+  .info3
   {
-    width: 500px;
-    height: 250px;
-    z-index: 2;
-    position: relative;
-    left: -150px;
-    top: -20px;
-    text-align: left;
+      width: 200px;
+      height: 100px;
+      color: white;
   }
-
-  .read
+  .land
   {
-    width: 140px;
-    margin-top: 20px;
-    color: rgba(255, 255, 255, 0.886);
-    position: relative;
-    display: flex;
-    
-    justify-content: space-evenly;
+      color: white;
+      font-weight: 500;
   }
-  .read i{
-    font-size: 40px;
-  }
-  .read p{
-    position: relative;
-    top: 8px;
-    text-align: center;
-  }
-
-  .fairytale
+  .subland
   {
-    color: white;
-    font-size: 60px;
-    font-weight: 600;
+      color: rgba(255, 255, 255, 0.735);
   }
-  .india
+  .info4
   {
-    color: white;
-    font-size: 60px;
-    font-weight: 600;
-    flex-wrap: wrap;
+      width: 200px;
+      height: 100px;
+      
   }
-  .info2
+  .info5
   {
-    color: rgba(255, 255, 255, 0.886);
-    font-size: 18px;
+      width: 200px;
+      height: 100px;
   }
-  .basic
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.5rem;
+      left: 10px;
+      top: 10px;
+    }
   }
-  .info{
-    display: flex;
-    width: 800px;
-    height: 1000px;
-    justify-content: space-around;
-  }
-.info3
-{
-    width: 200px;
-    height: 100px;
-    color: white;
-}
-.land
-{
-    color: white;
-    font-weight: 500;
-}
-.subland
-{
-    color: rgba(255, 255, 255, 0.735);
-}
-.info4
-{
-    width: 200px;
-    height: 100px;
-    
-}
-.info5
-{
-    width: 200px;
-    height: 100px;
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-  .logo {
-    font-size: 1.5rem;
-    left: 10px;
-    top: 10px;
-  }
-}

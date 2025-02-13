@@ -1,4 +1,4 @@
-import VideoBg from "../assest/CoverVideo.mp4";
+import VideoBg from "url:../assest/CoverVideo.mp4";
 import image1 from "../assest/IndiaImage.jpg";
 export default function Cover() {
   return (
