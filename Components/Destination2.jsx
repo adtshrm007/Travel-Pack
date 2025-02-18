@@ -43,8 +43,8 @@ export default function Cover() {
             <img src={image2}></img>
           </div>
           <div className="info1">
-            <p className="fairytale">BEAUTY</p>
-            <p className="india">OF NORWAY</p>
+            <p className="fairytale">MAGNIFICENT</p>
+            <p className="india">NORWAY</p>
             <p className="info2">
               We're happy to help you find some ideas for planning your trip well helps you get what you want and find the experience you wish for.
             </p>
