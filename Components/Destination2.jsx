@@ -2,7 +2,7 @@
 import VideoBg from "url:../assest/CoverVideo2.mp4";
 import image2 from "../assest/NorwayImage.jpg";
 
-export default function Cover() {
+export default function Destination2() {
   return (
     <div className="Main">
       <video autoPlay loop muted playsInline className="background-video">
@@ -32,10 +32,10 @@ export default function Cover() {
         </div>
       </div>
       <div className="numbers">
-      <a href="destination1">01</a>
-        <a href="destination2">02</a>
-        <a href="">03</a>
-        <a href="">04</a>
+      <a href="/destination1">01</a>
+        <a href="/destination2">02</a>
+        <a href="/destination3">03</a>
+        <a href="/destination4">04</a>
       </div>
       <div className="image">
         <div className="basic">

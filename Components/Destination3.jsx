@@ -1,4 +1,3 @@
-
 import VideoBg from "url:../assest/CoverVideo3.mp4";
 import image2 from "../assest/SwitzerLandImage.jpg";
 
@@ -32,10 +31,10 @@ export default function Destination3() {
         </div>
       </div>
       <div className="numbers">
-      <a href="destination1">01</a>
-        <a href="destination2">02</a>
-        <a href="">03</a>
-        <a href="">04</a>
+      <a href="/destination1">01</a>
+        <a href="/destination2">02</a>
+        <a href="/destination3">03</a>
+        <a href="/destination4">04</a>
       </div>
       <div className="image">
         <div className="basic">
@@ -46,7 +45,9 @@ export default function Destination3() {
             <p className="fairytale">DREAMY</p>
             <p className="india">SWITZERLAND</p>
             <p className="info2">
-            Embark on a journey through snow-capped peaks, enchanting villages, and pristine landscapes. Let Switzerland’s magic captivate your soul.
+              Embark on a journey through snow-capped peaks, enchanting
+              villages, and pristine landscapes. Let Switzerland’s magic
+              captivate your soul.
             </p>
             <div className="read">
               <i class="fa-sharp fa-solid fa-circle-down"></i>
@@ -55,18 +56,27 @@ export default function Destination3() {
           </div>
         </div>
         <div className="info">
-        <div className="info3">
+          <div className="info3">
             <p className="land">Land of Tiger</p>
-            <p className="subland">One of the main attractions for the widlife lovers around the world</p>
-        </div>
-        <div className="info4">
-        <p className="land">Emerlead Beaches</p>
-        <p className="subland">A great opportunity to relax from worries in the best beaches in India</p>
-        </div>
-        <div className="info5">
-        <p className="land">Land of Tiger</p>
-        <p className="subland">One of the main attractions for the widlife lovers around the world</p>
-        </div>
+            <p className="subland">
+              One of the main attractions for the widlife lovers around the
+              world
+            </p>
+          </div>
+          <div className="info4">
+            <p className="land">Emerlead Beaches</p>
+            <p className="subland">
+              A great opportunity to relax from worries in the best beaches in
+              India
+            </p>
+          </div>
+          <div className="info5">
+            <p className="land">Land of Tiger</p>
+            <p className="subland">
+              One of the main attractions for the widlife lovers around the
+              world
+            </p>
+          </div>
         </div>
       </div>
     </div>
