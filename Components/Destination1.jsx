@@ -1,6 +1,7 @@
 import VideoBg from "url:../assest/CoverVideo.mp4";
 import image1 from "../assest/IndiaImage.jpg";
 import { Link } from "react-router";
+import { NavLink } from "react-router";
 import React from "react";
 import { useState } from "react";
 export default function Destination1() {
@@ -34,34 +35,30 @@ export default function Destination1() {
         </div>
       </div>
       <div className="numbers">
-      <Link
-          to="/destination1"
-          className={activeNumber === "01" ? "active" : ""}
-          onClick={() => setActiveNumber("01")}
-        >
-          01
-        </Link>
-        <Link
-          to="/destination2"
-          className={activeNumber === "02" ? "active" : ""}
-          onClick={() => setActiveNumber("02")}
-        >
-          02
-        </Link>
-        <Link
-          to="/destination3"
-          className={activeNumber === "03" ? "active" : ""}
-          onClick={() => setActiveNumber("03")}
-        >
-          03
-        </Link>
-        <Link
-          to="/destination4"
-          className={activeNumber === "04" ? "active" : ""}
-          onClick={() => setActiveNumber("04")}
-        >
-          04
-        </Link>
+      <NavLink
+        to="/destination1"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        01
+      </NavLink>
+      <NavLink
+        to="/destination2"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        02
+      </NavLink>
+      <NavLink
+        to="/destination3"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        03
+      </NavLink>
+      <NavLink
+        to="/destination4"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        04
+      </NavLink>
       </div>
       <div className="image">
         <div className="basic">
