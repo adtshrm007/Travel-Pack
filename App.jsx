@@ -7,8 +7,7 @@ const App = () => {
   return (
     <>
       <Destination1/>
-      <Destination2/>
-      <Destination3/>
+      
     </>
   )
 }

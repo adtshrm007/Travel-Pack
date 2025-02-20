@@ -81,7 +81,7 @@
       display: flex;
       justify-content: space-evenly;
   }
-  .numbers {
+  .numbers{
       width: 10%;
       height: 100%;
       margin-top: 80px;
@@ -91,9 +91,17 @@
       
   }
   
+  
   .numbers a {
       font-size: 15px;
       color: rgba(255, 255, 255, 0.765);
+      font-weight: 400;
+      text-decoration: none;
+  }
+  .number a.active
+  {
+    font-size: 18px;
+      color:black;
       font-weight: 400;
       text-decoration: none;
   }

@@ -1,19 +1,22 @@
 import VideoBg from "url:../assest/CoverVideo3.mp4";
 import image2 from "../assest/SwitzerLandImage.jpg";
-
+import { Link } from "react-router";
+import React from "react";
+import { useState } from "react";
 export default function Destination3() {
+  const [activeNumber, setActiveNumber] = useState("03");
   return (
     <div className="Main">
       <video autoPlay loop muted playsInline className="background-video">
         <source src={VideoBg} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div class="lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <div className="lines">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </div>
       <div className="header">
         <div className="logo">
@@ -31,10 +34,34 @@ export default function Destination3() {
         </div>
       </div>
       <div className="numbers">
-      <a href="/destination1">01</a>
-        <a href="/destination2">02</a>
-        <a href="/destination3">03</a>
-        <a href="/destination4">04</a>
+      <Link
+          to="/destination1"
+          className={activeNumber === "01" ? "active" : ""}
+          onClick={() => setActiveNumber("01")}
+        >
+          01
+        </Link>
+        <Link
+          to="/destination2"
+          className={activeNumber === "02" ? "active" : ""}
+          onClick={() => setActiveNumber("02")}
+        >
+          02
+        </Link>
+        <Link
+          to="/destination3"
+          className={activeNumber === "03" ? "active" : ""}
+          onClick={() => setActiveNumber("03")}
+        >
+          03
+        </Link>
+        <Link
+          to="/destination4"
+          className={activeNumber === "04" ? "active" : ""}
+          onClick={() => setActiveNumber("04")}
+        >
+          04
+        </Link>
       </div>
       <div className="image">
         <div className="basic">
