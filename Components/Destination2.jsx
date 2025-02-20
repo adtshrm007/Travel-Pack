@@ -70,7 +70,7 @@ export default function Destination2() {
             <p className="fairytale">MAGNIFICENT</p>
             <p className="india">NORWAY</p>
             <p className="info2">
-              We're happy to help you find some ideas for planning your trip well helps you get what you want and find the experience you wish for.
+            A place where nature reigns supreme, Norway is a dream destination for those who love dramatic fjords, northern lights, and rugged wilderness.
             </p>
             <div className="read">
               <i class="fa-sharp fa-solid fa-circle-down"></i>
@@ -80,16 +80,16 @@ export default function Destination2() {
         </div>
         <div className="info">
         <div className="info3">
-            <p className="land">Land of Tiger</p>
-            <p className="subland">One of the main attractions for the widlife lovers around the world</p>
+            <p className="land">Majestic Fjords</p>
+            <p className="subland">Sail through Norway’s legendary fjords, where towering cliffs meet crystal-clear waters.</p>
         </div>
         <div className="info4">
-        <p className="land">Emerlead Beaches</p>
-        <p className="subland">A great opportunity to relax from worries in the best beaches in India</p>
+        <p className="land">Dancing Lights</p>
+        <p className="subland">Witness the mesmerizing northern lights as they illuminate the Arctic skies in a magical display.</p>
         </div>
         <div className="info5">
-        <p className="land">Land of Tiger</p>
-        <p className="subland">One of the main attractions for the widlife lovers around the world</p>
+        <p className="land">Untamed Wilderness</p>
+        <p className="subland">Hike through vast national parks, explore Viking heritage, and experience the raw beauty of the Nordic landscapes.</p>
         </div>
         </div>
       </div>

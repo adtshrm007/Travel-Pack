@@ -81,24 +81,21 @@ export default function Destination3() {
         </div>
         <div className="info">
           <div className="info3">
-            <p className="land">Land of Tiger</p>
+            <p className="land">Alpine Escape</p>
             <p className="subland">
-              One of the main attractions for the widlife lovers around the
-              world
+            Explore the majestic Swiss Alps, where snow-capped peaks, scenic trails, and world-class skiing await.
             </p>
           </div>
           <div className="info4">
-            <p className="land">Emerlead Beaches</p>
+            <p className="land">Crystal Lakes</p>
             <p className="subland">
-              A great opportunity to relax from worries in the best beaches in
-              India
+            Sail across serene lakes surrounded by picturesque mountains, from Lake Geneva to Lake Lucerne.
             </p>
           </div>
           <div className="info5">
-            <p className="land">Land of Tiger</p>
+            <p className="land">Charming Cities</p>
             <p className="subland">
-              One of the main attractions for the widlife lovers around the
-              world
+            Discover the elegance of Zurich, the history of Bern, and the romance of Lucerne’s old town.
             </p>
           </div>
         </div>
