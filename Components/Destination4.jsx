@@ -21,7 +21,9 @@ export default function Destination4() {
       </div>
       <div className="header">
         <div className="logo">
-          <p><i class="fa-solid fa-earth-americas"></i> Travel Pack</p>
+          <p>
+            <i class="fa-solid fa-earth-americas"></i> Travel Pack
+          </p>
         </div>
         <div className="options">
           <p className="option">Home</p>
@@ -31,34 +33,36 @@ export default function Destination4() {
         </div>
         <div className="login">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-user"></i>
+          <Link to="/login">
+            <i class="fa-solid fa-user"></i>
+          </Link>
         </div>
       </div>
       <div className="numbers">
-      <NavLink
-        to="/destination1"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        01
-      </NavLink>
-      <NavLink
-        to="/destination2"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        02
-      </NavLink>
-      <NavLink
-        to="/destination3"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        03
-      </NavLink>
-      <NavLink
-        to="/destination4"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        04
-      </NavLink>
+        <NavLink
+          to="/destination1"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          01
+        </NavLink>
+        <NavLink
+          to="/destination2"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          02
+        </NavLink>
+        <NavLink
+          to="/destination3"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          03
+        </NavLink>
+        <NavLink
+          to="/destination4"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          04
+        </NavLink>
       </div>
       <div className="image">
         <div className="basic">
@@ -69,7 +73,9 @@ export default function Destination4() {
             <p className="fairytale">MAGICAL</p>
             <p className="india">AUSTRALIA</p>
             <p className="info2">
-            From vast outbacks to dazzling beaches, Australia is a land of adventure, culture, and breathtaking beauty. Explore its wonders and create memories that last a lifetime.
+              From vast outbacks to dazzling beaches, Australia is a land of
+              adventure, culture, and breathtaking beauty. Explore its wonders
+              and create memories that last a lifetime.
             </p>
             <div className="read">
               <i class="fa-sharp fa-solid fa-circle-down"></i>
@@ -78,18 +84,27 @@ export default function Destination4() {
           </div>
         </div>
         <div className="info">
-        <div className="info3">
+          <div className="info3">
             <p className="land">Wild Wonders</p>
-            <p className="subland">Encounter unique wildlife, from hopping kangaroos to cuddly koalas, in their natural habitats.</p>
-        </div>
-        <div className="info4">
-        <p className="land">Sun-Kissed Shores</p>
-        <p className="subland">Relax on pristine beaches with turquoise waters, perfect for surfing, snorkeling, or just soaking in the sun.</p>
-        </div>
-        <div className="info5">
-        <p className="land">Urban Marvels</p>
-        <p className="subland">Experience the vibrant energy of Sydney, Melbourne, and beyond—where modern skyscrapers meet rich history.</p>
-        </div>
+            <p className="subland">
+              Encounter unique wildlife, from hopping kangaroos to cuddly
+              koalas, in their natural habitats.
+            </p>
+          </div>
+          <div className="info4">
+            <p className="land">Sun-Kissed Shores</p>
+            <p className="subland">
+              Relax on pristine beaches with turquoise waters, perfect for
+              surfing, snorkeling, or just soaking in the sun.
+            </p>
+          </div>
+          <div className="info5">
+            <p className="land">Urban Marvels</p>
+            <p className="subland">
+              Experience the vibrant energy of Sydney, Melbourne, and
+              beyond—where modern skyscrapers meet rich history.
+            </p>
+          </div>
         </div>
       </div>
     </div>

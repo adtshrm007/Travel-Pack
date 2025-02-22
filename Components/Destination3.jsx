@@ -21,7 +21,9 @@ export default function Destination3() {
       </div>
       <div className="header">
         <div className="logo">
-          <p><i class="fa-solid fa-earth-americas"></i> Travel Pack</p>
+          <p>
+            <i class="fa-solid fa-earth-americas"></i> Travel Pack
+          </p>
         </div>
         <div className="options">
           <p className="option">Home</p>
@@ -31,34 +33,36 @@ export default function Destination3() {
         </div>
         <div className="login">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-user"></i>
+          <Link to="/login">
+            <i class="fa-solid fa-user"></i>
+          </Link>
         </div>
       </div>
       <div className="numbers">
-      <NavLink
-        to="/destination1"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        01
-      </NavLink>
-      <NavLink
-        to="/destination2"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        02
-      </NavLink>
-      <NavLink
-        to="/destination3"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        03
-      </NavLink>
-      <NavLink
-        to="/destination4"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        04
-      </NavLink>
+        <NavLink
+          to="/destination1"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          01
+        </NavLink>
+        <NavLink
+          to="/destination2"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          02
+        </NavLink>
+        <NavLink
+          to="/destination3"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          03
+        </NavLink>
+        <NavLink
+          to="/destination4"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          04
+        </NavLink>
       </div>
       <div className="image">
         <div className="basic">
@@ -83,19 +87,22 @@ export default function Destination3() {
           <div className="info3">
             <p className="land">Alpine Escape</p>
             <p className="subland">
-            Explore the majestic Swiss Alps, where snow-capped peaks, scenic trails, and world-class skiing await.
+              Explore the majestic Swiss Alps, where snow-capped peaks, scenic
+              trails, and world-class skiing await.
             </p>
           </div>
           <div className="info4">
             <p className="land">Crystal Lakes</p>
             <p className="subland">
-            Sail across serene lakes surrounded by picturesque mountains, from Lake Geneva to Lake Lucerne.
+              Sail across serene lakes surrounded by picturesque mountains, from
+              Lake Geneva to Lake Lucerne.
             </p>
           </div>
           <div className="info5">
             <p className="land">Charming Cities</p>
             <p className="subland">
-            Discover the elegance of Zurich, the history of Bern, and the romance of Lucerne’s old town.
+              Discover the elegance of Zurich, the history of Bern, and the
+              romance of Lucerne’s old town.
             </p>
           </div>
         </div>

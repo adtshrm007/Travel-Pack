@@ -21,7 +21,9 @@ export default function Destination1() {
       </div>
       <div className="header">
         <div className="logo">
-          <p><i class="fa-solid fa-earth-americas"></i> Travel Pack</p>
+          <p>
+            <i class="fa-solid fa-earth-americas"></i> Travel Pack
+          </p>
         </div>
         <div className="options">
           <p className="option">Home</p>
@@ -31,34 +33,36 @@ export default function Destination1() {
         </div>
         <div className="login">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-user"></i>
+          <Link to="/login">
+            <i class="fa-solid fa-user"></i>
+          </Link>
         </div>
       </div>
       <div className="numbers">
-      <NavLink
-        to="/destination1"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        01
-      </NavLink>
-      <NavLink
-        to="/destination2"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        02
-      </NavLink>
-      <NavLink
-        to="/destination3"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        03
-      </NavLink>
-      <NavLink
-        to="/destination4"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        04
-      </NavLink>
+        <NavLink
+          to="/destination1"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          01
+        </NavLink>
+        <NavLink
+          to="/destination2"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          02
+        </NavLink>
+        <NavLink
+          to="/destination3"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          03
+        </NavLink>
+        <NavLink
+          to="/destination4"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          04
+        </NavLink>
       </div>
       <div className="image">
         <div className="basic">
@@ -79,18 +83,27 @@ export default function Destination1() {
           </div>
         </div>
         <div className="info">
-        <div className="info3">
+          <div className="info3">
             <p className="land">Land of Tiger</p>
-            <p className="subland">One of the main attractions for the widlife lovers around the world</p>
-        </div>
-        <div className="info4">
-        <p className="land">Emerlead Beaches</p>
-        <p className="subland">A great opportunity to relax from worries in the best beaches in India</p>
-        </div>
-        <div className="info5">
-        <p className="land">Golden Triangle</p>
-        <p className="subland">Witness the magnificent Taj Mahal and witness the heritage of Delhi</p>
-        </div>
+            <p className="subland">
+              One of the main attractions for the widlife lovers around the
+              world
+            </p>
+          </div>
+          <div className="info4">
+            <p className="land">Emerlead Beaches</p>
+            <p className="subland">
+              A great opportunity to relax from worries in the best beaches in
+              India
+            </p>
+          </div>
+          <div className="info5">
+            <p className="land">Golden Triangle</p>
+            <p className="subland">
+              Witness the magnificent Taj Mahal and witness the heritage of
+              Delhi
+            </p>
+          </div>
         </div>
       </div>
     </div>
