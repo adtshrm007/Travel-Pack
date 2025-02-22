@@ -1,246 +1,427 @@
 /* Reset Default Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Main Section */
+.Main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Video Styling */
+.Main video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: -1;
+}
+
+/* Individual Vertical Line */
+.line {
+  width: 1px;
+  height: 100%;
+  filter: brightness(0.4);
+  background-color: white;
+}
+
+/* Header */
+.header {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 1;
+  top: 30px;
+  cursor: pointer;
+  opacity: 0;
+  animation: headerFadeIn 1s ease-in-out 0.3s forwards;
+}
+
+/* Logo Styling */
+.logo {
+  width: 20%;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+/* Menu */
+.menu {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 30px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Options */
+.options {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+/* Login */
+.login {
+  width: 10%;
+  z-index: 1;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.7s forwards;
+}
+
+/* Numbers */
+.numbers {
+  width: 10%;
+  height: 100%;
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  justify-items: center;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s ease-out 0.7s forwards;
+}
+.numbers a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.765);
+  font-weight: 400;
+  text-decoration: none;
+}
+.numbers a:hover {
+  color: white;
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
+}
+.numbers a.active {
+  font-size: 20px;
+  color: white;
+  font-weight: 470;
+  text-decoration: none;
+}
+
+/* Image Container */
+.image {
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -45%);
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  box-shadow: 10px;
+  opacity: 0;
+  animation: imageZoomIn 1.5s ease-in-out 0.8s forwards;
+}
+
+/* Inner Image Wrapper */
+.img {
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
+  box-shadow: 2px;
+  position: relative;
+  display: flex;
+}
+
+/* Strips */
+.strip {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transform: translateX(-100%) scale(1.2);
+  animation: mergeAnimation 1.5s ease-in-out forwards;
+}
+
+/* Image Animation */
+.img img {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  animation: beautifulImageAnimation 1s ease-out forwards;
+}
+
+/* Info Section */
+.info1 {
+  width: 40%;
+  height: 250px;
+  z-index: 2;
+  position: relative;
+  left: -150px;
+  top: -20px;
+  text-align: left;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.info2 {
+  color: rgba(255, 255, 255, 0.886);
+  font-size: 18px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out 1.3s forwards;
+}
+
+.read {
+  width: 140px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.886);
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleUp 1s ease-in-out 1s forwards;
+}
+.read i {
+  font-size: 40px;
+}
+.read p {
+  position: relative;
+  top: 8px;
+  text-align: center;
+}
+
+.fairytale {
+  color: white;
+  font-size: 60px;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideInLeft 1s ease-out 1.4s forwards;
+}
+
+.india {
+  color: white;
+  font-size: 60px;
+  font-weight: 600;
+  flex-wrap: wrap;
+  display: inline;
+  opacity: 0;
+  animation: slideInRight 1s ease-out 1.4s forwards;
+}
+
+.basic {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out 1.5s forwards;
+}
+
+.info {
+  display: flex;
+  width: 800px;
+  height: 1000px;
+  justify-content: space-around;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out 1.2s forwards;
+}
+
+.info3, .info4, .info5 {
+  width: 200px;
+  height: 100px;
+  color: white;
+  opacity: 0;
+  animation: bounceIn 1s ease-in-out 1.2s forwards;
+}
+
+.land {
+  color: white;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeUp 1s ease-out 1.6s forwards;
+}
+
+.subland {
+  color: rgba(255, 255, 255, 0.735);
+  opacity: 0;
+  animation: fadeUp 1s ease-out 1.6s forwards;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Main Section */
-  .Main {
-    width: 100%;
-    height: 100vh; /* Use full viewport height */
-    position: relative;
-    overflow: hidden;
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Background Video Styling */
-  .Main video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures video covers the full area */
-    filter: brightness(0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Moves video to the background */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  .lines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: space-around;
-      z-index: -1;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Individual Vertical Line */
-  .line {
-      width: 1px;
-      height: 100%;
-      filter:brightness(0.4);
-      background-color:white;
-      
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  .menu
-  {
-      width: 80%;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 40px;
-      margin-left: 30px;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  .options
-  {
-      width: 40%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      justify-content: space-evenly;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
-  /* Logo Styling */
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageZoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -45%) scale(1);
+  }
+}
+
+@keyframes mergeAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scale(1.2);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes beautifulImageAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02) translateY(10px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .logo {
-    width: 10%;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    z-index: 1; /* Keeps it above the video */
+    font-size: 1.5rem;
+    left: 10px;
+    top: 10px;
   }
-  .login
-  {
-      width: 10%;
-      z-index: 1;
-      color: white;
-      display: flex;
-      justify-content: space-evenly;
-  }
-  .numbers{
-      width: 10%;
-      height: 100%;
-      margin-top: 80px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Evenly spaces items */
-      justify-items: center;
-      
-  }
-  
-  
-  .numbers a {
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.765);
-      font-weight: 400;
-      text-decoration: none;
-  }
-  .numbers a.active
-  {
-    font-size: 20px;
-      color:white;
-      font-weight: 470;
-      text-decoration: none;
-  }
-  .header {
-      position: relative;
-      width: 100%;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      z-index: 1;
-      top: 30px;
-      cursor: pointer;
-    }
-    .logo {
-      width: 20%;
-      color: white;
-      font-size: 2rem;
-      font-weight: 700;
-      z-index: 1; /* Keeps it above the video */
-    }
-  
-    .image {
-      position: absolute; /* Ensures the image appears over the background */
-      top: 50%; /* Centers it vertically */
-      left: 51%; /* Centers it horizontally */
-      transform: translate(-50%, -45%); /* Centers the element more accurately */
-      width: 80%; /* Adjust width */
-      height: 80%; /* Adjust height */
-      z-index: 1; /* Makes sure the image is above the video */
-      box-shadow: 10px;
-    }
-    .img
-    {
-      width: 90%;
-      height: 90%;
-      
-      box-shadow: 2px;
-    }
-    .img img{
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    .info1
-    {
-      width: 40%;
-      height: 250px;
-      z-index: 2;
-      position: relative;
-      left: -150px;
-      top: -20px;
-      text-align: left;
-      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    }
-  
-    .read
-    {
-      width: 140px;
-      margin-top: 20px;
-      color: rgba(255, 255, 255, 0.886);
-      position: relative;
-      display: flex;
-      
-      justify-content: space-evenly;
-    }
-    .read i{
-      font-size: 40px;
-    }
-    .read p{
-      position: relative;
-      top: 8px;
-      text-align: center;
-    }
-  
-    .fairytale
-    {
-      color: white;
-      font-size: 60px;
-      font-weight: 600;
-    }
-    .india
-    {
-      color: white;
-      font-size: 60px;
-      font-weight: 600;
-      flex-wrap: wrap;
-      display: inline;
-    }
-    .info2
-    {
-      color: rgba(255, 255, 255, 0.886);
-      font-size: 18px;
-    }
-    .basic
-    {
-      width: 100%;
-      height: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .info{
-      display: flex;
-      width: 800px;
-      height: 1000px;
-      justify-content: space-around;
-    }
-  .info3
-  {
-      width: 200px;
-      height: 100px;
-      color: white;
-  }
-  .land
-  {
-      color: white;
-      font-weight: 500;
-  }
-  .subland
-  {
-      color: rgba(255, 255, 255, 0.735);
-  }
-  .info4
-  {
-      width: 200px;
-      height: 100px;
-      
-  }
-  .info5
-  {
-      width: 200px;
-      height: 100px;
-  }
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .logo {
-      font-size: 1.5rem;
-      left: 10px;
-      top: 10px;
-    }
-  }
+}

@@ -21,7 +21,7 @@ export default function Destination4() {
       </div>
       <div className="header">
         <div className="logo">
-          <p>Travel Pack</p>
+          <p><i class="fa-solid fa-earth-americas"></i> Travel Pack</p>
         </div>
         <div className="options">
           <p className="option">Home</p>
