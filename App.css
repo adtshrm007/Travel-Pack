@@ -530,8 +530,168 @@
   color: var(--text-color);
 }
 
-/* Next Section Styling */
-.next {
-  text-align: center;
-  margin-top: 20px;
+/* --- Base Styles & Video Background --- */
+.signup {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.signup video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) contrast(1.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* --- Signup Form Container --- */
+.signup-form {
+  width: 90%;
+  max-width: 500px;
+  min-height: 550px;
+  padding: 2rem;
+  background-color: var(--primary-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  color: var(--text-color);
+  overflow: hidden;
+  z-index: 1;
+  /* Removed absolute positioning to let Flexbox center it */
+}
+
+/* --- Progress Indicator --- */
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+.progress-step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #444;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+.progress-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  background-color: #444;
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+.progress-step.active {
+  background-color: var(--accent-color);
+}
+.progress-step.active:not(:last-child)::after {
+  background-color: var(--accent-color);
+}
+
+/* --- Multi-Step Form Container --- */
+.signup-mainform {
+  width: 100%;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  position: relative;
+}
+
+/* --- Multi-Step Form Steps --- */
+.step {
+  display: none;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInSlide 0.5s forwards;
+}
+.step.active {
+  display: block;
+}
+
+/* Keyframes for step transition */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Input Field Styling --- */
+.emailid {
+  width: 100%;
+  height: 50px;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  border: 1px solid #444;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.emailid input {
+  width: 90%;
+  height: 80%;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  background-color: transparent;
+}
+
+/* Enhanced focus state for inputs */
+.emailid input:focus {
+  border-color: var(--accent-color);
+  transform: scale(1.02);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Navigation Buttons for Multi-Step Flow --- */
+.next-btn,
+.prev-btn,
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+.next-btn:hover,
+.prev-btn:hover,
+.submit-btn:hover {
+  background-color: #3e8e41;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .signup-form {
+    width: 95%;
+    padding: 1.5rem;
+    min-height: auto;
+  }
 }
