@@ -571,6 +571,11 @@
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
+.next 
+{
+  text-align: center;
+  margin-top: 20px;
+}
 .progress-step {
   width: 30px;
   height: 30px;
@@ -694,4 +699,30 @@
     padding: 1.5rem;
     min-height: auto;
   }
+}
+.xyz
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.google
+{
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.google1
+{
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--accent-color);
+  margin-top: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
