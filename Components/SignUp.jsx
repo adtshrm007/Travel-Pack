@@ -1,31 +1,34 @@
 import SignUpVideo from "url:../assest/SignUpVideo.mp4";
 import { Link } from "react-router";
 import { useState } from "react";
-import { Axios } from "axios";
+import { useNavigate } from "react-router";
 
 export default function SignUp() {
-  const[email,setEmail]=useState();
-const[username,setUsername]=useState();
-const[password,setPassword]=useState();
-const[ConfirmPassword,setConfirmPassword]=useState();
+  
+  
+    const [user, setUser] = useState({ email: "", username: "",password:"",confrimpassword:"" });
+    const navigate = useNavigate();
+  
+    const handleChange = (e) => {
+      setUser({ ...user, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      // Check if the user already exists
+      if (localStorage.getItem(user.email)) {
+        alert("User already exists! Please login.");
+      } else {
+        localStorage.setItem(user.email, JSON.stringify(user));
+        alert("Sign up successful! Please log in.");
+        navigate("/login");
+      }
+    };
 
-const handleClick=()=>{
-  const payload={
-    email:email,
-    username:username,
-    password:password,
-    ConfirmPassword:ConfirmPassword
-  }
-  if(password==ConfirmPassword)
-  {
-    console.log(payload);
-  }
-  else
-  {
-    console.log("error");
-  }
-}
+  
 
+  
 
   return (
     <>
@@ -39,21 +42,23 @@ const handleClick=()=>{
             <p className="abc">Sign Up</p>
             <div className="signup-mainform">
               <div className="emailid">
-                <input onChange={(e)=>setEmail(e.target.value)} type="text" placeholder="Email Id"></input>
+                <input  typre="text" placeholder="Email Id" required onChange={handleChange}></input>
               </div>
               <div className="emailid">
-                <input onChange={(e)=>setUsername(e.target.value)} type="text" placeholder="Username"></input>
+              <input type="text" placeholder="Username" required onChange={handleChange}></input>
               </div>
               <div className="emailid">
-                <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Password"></input>
+              <input type="password" placeholder="Password" required onChange={handleChange}></input>
               </div>
               <div className="emailid">
-                <input onChange={(e)=>setConfirmPassword(e.target.value)} type="password" placeholder="Confirm Password"></input>
+              <input type="password" placeholder="Confirm Password" required onChange={handleChange}></input>
               </div>
 
               <div className="button">
-                <button onClick={handleClick}>Sign Up</button>
+                <button onClick={handleSubmit}>Sign Up</button>
               </div>
+
+              
               <p className="next">
                 Have an account?<Link to="/login">Login</Link>
               </p>
@@ -78,3 +83,4 @@ const handleClick=()=>{
     </>
   );
 }
+
