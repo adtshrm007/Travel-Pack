@@ -6,29 +6,53 @@ import { useNavigate } from "react-router";
 export default function SignUp() {
   
   
-    const [user, setUser] = useState({ email: "", username: "",password:"",confrimpassword:"" });
+    const [user, setUser] = useState({ 
+      email: "", 
+      username: "",
+      password:"",
+      confrimpassword:"" 
+    });
     const navigate = useNavigate();
   
     const handleChange = (e) => {
-      setUser({ ...user, [e.target.name]: e.target.value });
+      setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
+  
+    
   
     const handleSubmit = (e) => {
       e.preventDefault();
+      console.log("Submitting user:", user);
   
-      // Check if the user already exists
-      if (localStorage.getItem(user.email)) {
-        alert("User already exists! Please login.");
-      } else {
-        localStorage.setItem(user.email, JSON.stringify(user));
-        alert("Sign up successful! Please log in.");
-        navigate("/login");
+      if (user.password !== user.confrimpassword) {
+        alert("Passwords do not match!");
+        return;
       }
+  
+      // Retrieve users from localStorage
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+  
+      // Check if user already exists
+      const userExists = users.some((existingUser) => existingUser.email === user.email);
+      console.log(user)
+      if (userExists) {
+        alert("User already exists! Please login.");
+        return;
+      }
+  
+      // Add new user to the array
+      users.push({
+        email: user.email,
+        username: user.username,
+        password: user.password,
+      });
+  
+      // Save updated users array back to localStorage
+      localStorage.setItem("users", JSON.stringify(users));
+  
+      alert("Sign up successful! Please log in.");
+      navigate("/login");
     };
-
-  
-
-  
 
   return (
     <>
@@ -40,18 +64,18 @@ export default function SignUp() {
         <div className="xyz">
           <div className="signup-form">
             <p className="abc">Sign Up</p>
-            <div className="signup-mainform">
+            <form className="signup-mainform" >
               <div className="emailid">
-                <input  typre="text" placeholder="Email Id" required onChange={handleChange}></input>
+                <input  type="email" placeholder="Email Id" name="email" required onChange={handleChange} value={user.email}></input>
               </div>
               <div className="emailid">
-              <input type="text" placeholder="Username" required onChange={handleChange}></input>
+              <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={user.username}></input>
               </div>
               <div className="emailid">
-              <input type="password" placeholder="Password" required onChange={handleChange}></input>
+              <input type="password" placeholder="Password" name="password" required onChange={handleChange} value={user.password}></input>
               </div>
               <div className="emailid">
-              <input type="password" placeholder="Confirm Password" required onChange={handleChange}></input>
+              <input type="password" placeholder="Confirm Password" name="confrimpassword" required onChange={handleChange} value={user.confrimpassword}></input>
               </div>
 
               <div className="button">
@@ -62,7 +86,7 @@ export default function SignUp() {
               <p className="next">
                 Have an account?<Link to="/login">Login</Link>
               </p>
-            </div>
+            </form>
           </div>
           <div className="google">
             <div className="google1">

@@ -1,6 +1,54 @@
 import LoginVideo from "url:../assest/LoginVideo.mp4";
 import { Link } from "react-router";
+import { useNavigate } from "react-router";
+import { useState } from "react";
 export default function Login() {
+
+
+
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    console.log(`Changing ${e.target.name}: ${e.target.value}`); // ✅ Debugging log
+    setCredentials((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value, // ✅ Ensure name attributes match
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // ✅ Prevent form reload
+
+    console.log("Submitting credentials:", credentials);
+
+    // ✅ Retrieve users correctly
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    console.log("Stored users:", users);
+
+    // ✅ Find user by username
+    const user = users.find((u) => u.username === credentials.username);
+
+    if (!user) {
+      alert("User not found! Please sign up.");
+      return;
+    }
+
+    // ✅ Check password
+    if (user.password === credentials.password) {
+      alert("Login successful!");
+      localStorage.setItem("loggedInUser", credentials.username); // Store session
+      navigate("/destination1"); // Redirect to dashboard
+    } else {
+      alert("Incorrect password!");
+    }
+  };
+
+
   return (
     <>
       <div className="login1">
@@ -19,13 +67,13 @@ export default function Login() {
           <p className="abc">LOGIN</p>
           <div className="login-mainform">
             <div className="username">
-              <input type="text" placeholder="Username"></input>
+              <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={credentials.username}></input>
             </div>
             <div className="username">
-              <input type="password" placeholder="Password"></input>
+              <input type="password" placeholder="Password" name="password" required onChange={handleChange} value={credentials.password}></input>
             </div>
             <div className="button">
-                <button>Login</button>
+                <button type="submit" onSubmit={handleSubmit}>Login</button>
             </div>
             <p className="next">Don't have an account?<Link to="/signup">Sign up</Link></p>
           </div>
