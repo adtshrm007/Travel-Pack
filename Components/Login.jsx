@@ -51,34 +51,52 @@ export default function Login() {
 
   return (
     <>
-      <div className="login1">
-        <video autoPlay loop muted playsInline className="background-video2">
-          <source src={LoginVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="header">
-          <div className="logo">
-            <p>
-              <i class="fa-solid fa-earth-americas"></i> Travel Pack
-            </p>
-          </div>
-        </div>
-        <div className="login-form">
-          <p className="abc">LOGIN</p>
-          <div className="login-mainform">
-            <div className="username">
-              <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={credentials.username}></input>
-            </div>
-            <div className="username">
-              <input type="password" placeholder="Password" name="password" required onChange={handleChange} value={credentials.password}></input>
-            </div>
-            <div className="button">
-                <button type="submit" onSubmit={handleSubmit}>Login</button>
-            </div>
-            <p className="next">Don't have an account?<Link to="/signup">Sign up</Link></p>
-          </div>
+    <div className="login1">
+      <video autoPlay loop muted playsInline className="background-video2">
+        <source src={LoginVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="header">
+        <div className="logo">
+          <p>
+            <i className="fa-solid fa-earth-americas"></i> Travel Pack
+          </p>
         </div>
       </div>
+      <div className="login-form">
+        <p className="abc">LOGIN</p>
+        {/* ✅ Use onSubmit on the form */}
+        <form className="login-mainform" onSubmit={handleSubmit}>
+          <div className="username">
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              required
+              onChange={handleChange}
+              value={credentials.username}
+            />
+          </div>
+          <div className="username">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+              onChange={handleChange}
+              value={credentials.password}
+            />
+          </div>
+          <div className="button">
+            {/* ✅ Ensure type="submit" */}
+            <button type="submit">Login</button>
+          </div>
+        </form>
+        <p className="next">
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </p>
+      </div>
+    </div>
     </>
   );
 }
