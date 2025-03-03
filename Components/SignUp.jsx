@@ -24,8 +24,19 @@ export default function SignUp() {
       e.preventDefault();
       console.log("Submitting user:", user);
   
-      if (user.password.length < 8) {
+      if (user.password.length < 8&&user.password) {
         alert("Password must be at least 8 characters long");
+        return;
+      }
+
+      if (!/\d/.test(user.password)) {
+        alert("Password must contain at least one number");
+        return;
+      }
+    
+      // ✅ Check for at least one special character
+      if (!/[!@#$%^&*(),.?":{}|<>]/.test(user.password)) {
+        alert("Password must contain at least one special character");
         return;
       }
   
