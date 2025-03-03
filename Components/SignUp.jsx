@@ -24,10 +24,16 @@ export default function SignUp() {
       e.preventDefault();
       console.log("Submitting user:", user);
   
+      if (user.password.length < 8) {
+        alert("Password must be at least 8 characters long");
+        return;
+      }
+  
       if (user.password !== user.confrimpassword) {
         alert("Passwords do not match!");
         return;
       }
+      
   
       // Retrieve users from localStorage
       let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -57,53 +63,53 @@ export default function SignUp() {
   return (
     <>
       <div className="signup">
-        <video autoPlay loop muted playsInline className="background-video3">
-          <source src={SignUpVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="xyz">
-          <div className="signup-form">
-            <p className="abc">Sign Up</p>
-            <form className="signup-mainform" >
-              <div className="emailid">
-                <input  type="email" placeholder="Email Id" name="email" required onChange={handleChange} value={user.email}></input>
-              </div>
-              <div className="emailid">
-              <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={user.username}></input>
-              </div>
-              <div className="emailid">
-              <input type="password" placeholder="Password" name="password" required onChange={handleChange} value={user.password}></input>
-              </div>
-              <div className="emailid">
-              <input type="password" placeholder="Confirm Password" name="confrimpassword" required onChange={handleChange} value={user.confrimpassword}></input>
-              </div>
-
-              <div className="button">
-                <button onClick={handleSubmit}>Sign Up</button>
-              </div>
-
-              
-              <p className="next">
-                Have an account?<Link to="/login">Login</Link>
-              </p>
-            </form>
+      <video autoPlay loop muted playsInline className="background-video3">
+        <source src={SignUpVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="xyz">
+        <div className="signup-form">
+          <p className="abc">Sign Up</p>
+          {/* ✅ Ensure onSubmit is on the form */}
+          <form className="signup-mainform" onSubmit={handleSubmit}>
+            <div className="emailid">
+              <input type="email" placeholder="Email Id" name="email" required onChange={handleChange} value={user.email} />
+            </div>
+            <div className="emailid">
+              <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={user.username} />
+            </div>
+            <div className="emailid">
+              <input type="password" placeholder="Password" name="password" required onChange={handleChange} value={user.password} />
+            </div>
+            <div className="emailid">
+              {/* ✅ Fixed `confirmPassword` name */}
+              <input type="password" placeholder="Confirm Password" name="confrimpassword" required onChange={handleChange} value={user.confrimpassword} />
+            </div>
+            <div className="button">
+              {/* ✅ Ensure the button type is submit */}
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
+          <p className="next">
+            Have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
+        <div className="google">
+          <div className="google1">
+            <i className="fa-brands fa-google"></i>
+            <p>Sign Up using Google</p>
           </div>
-          <div className="google">
-            <div className="google1">
-              <i class="fa-brands fa-google"></i>
-              <p>Sign Up using Google</p>
-            </div>
-            <div className="google1">
-            <i class="fa-brands fa-facebook"></i>
+          <div className="google1">
+            <i className="fa-brands fa-facebook"></i>
             <p>Sign Up using Facebook</p>
-            </div>
-            <div className="google1">
-            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div className="google1">
+            <i className="fa-solid fa-phone"></i>
             <p>Sign Up using Phone Number</p>
-            </div>
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
