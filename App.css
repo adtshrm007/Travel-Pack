@@ -1,6 +1,6 @@
 /* Define Color Variables for Enhanced Grading */
 :root {
-  --primary-bg: rgba(10, 10, 10, 0.85);      /* Darker, more uniform background */
+  --primary-bg: rgba(10, 10, 10, 0.85);     /* Darker, more uniform background */
   --secondary-bg: rgba(20, 20, 20, 0.75);    /* Slightly lighter for inner sections */
   --accent-color: #4CAF50;                  /* A fresh green accent */
   --text-color: #e0e0e0;                    /* Off-white for a softer look */
@@ -208,6 +208,7 @@
   font-size: 18px;
   opacity: 0;
   animation: fadeIn 1.5s ease-out 1.3s forwards;
+  color: rgba(224, 224, 224, 0.76);
 }
 
 .read {
@@ -262,6 +263,7 @@
   justify-content: space-around;
   opacity: 0;
   animation: fadeIn 1.5s ease-out 1.2s forwards;
+  color: rgba(224, 224, 224, 0.76);
 }
 
 .info3, .info4, .info5 {
@@ -269,17 +271,20 @@
   height: 100px;
   opacity: 0;
   animation: bounceIn 1s ease-in-out 1.2s forwards;
+  color: rgba(224, 224, 224, 0.76);;
 }
 
 .land {
   font-weight: 500;
   opacity: 0;
   animation: fadeUp 1s ease-out 1.6s forwards;
+  
 }
 
 .subland {
   opacity: 0;
   animation: fadeUp 1s ease-out 1.6s forwards;
+  color: rgba(224, 224, 224, 0.76);;
 }
 
 /* Keyframes remain unchanged */
