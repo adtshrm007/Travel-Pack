@@ -718,6 +718,7 @@
   height: 400px;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 .google1
 {
@@ -730,4 +731,14 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.google1 button
+{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
