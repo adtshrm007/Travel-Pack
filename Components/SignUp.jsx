@@ -1,80 +1,40 @@
 import SignUpVideo from "url:../assest/SignUpVideo.mp4";
-import { Link } from "react-router";
+import { Link } from "react-router"
+import { initializeApp } from "firebase/app"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { signInWithGoogle } from "./firebase"; // ✅ Import Firebase function
 
 export default function SignUp() {
-  const [user1, setUser1] = useState(null);
-  const [user, setUser] = useState({
-    email: "",
-    username: "",
-    password: "",
-    confirmPassword: "", // ✅ Fixed name
+
+  const firebaseConfig={
+    apiKey: "AIzaSyAIvfzZRIf1Nz-inlkUjS91EW9j7m6g39U",
+    authDomain: "travel-pack-cf40d.firebaseapp.com",
+    projectId: "travel-pack-cf40d",
+    storageBucket: "travel-pack-cf40d.firebasestorage.app",
+    messagingSenderId: "519574931748",
+    appId: "1:519574931748:web:a4c582704a39320f6d8bb1",
+    measurementId: "G-N6QF3CRSP6"
+
+  }
+
+  const app=initializeApp(firebaseConfig)
+  
+  const [email,setEmail]=useState('')
+  const [username,setUsername]=useState('')
+  const [password,setPassword]=useState('')
+  const [confirmPassword,setconfirmPassword]=useState('')
+
+  const auth = getAuth(app);
+
+const create=()=>createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    console.log(userCredential)
+  
+  })
+  .catch((error) => {
+    console.log(error)
   });
-
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleLogin = async () => {
-    try {
-      const response = await signInWithGoogle();
-      setUser1(response?.user); // ✅ Corrected variable
-    } catch (error) {
-      console.error("Google Sign-In Error:", error);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitting user:", user);
-
-    if (user.password.length < 8) {
-      alert("Password must be at least 8 characters long");
-      return;
-    }
-
-    if (!/\d/.test(user.password)) {
-      alert("Password must contain at least one number");
-      return;
-    }
-
-    if (!/[!@#$%^&*(),.?":{}|<>]/.test(user.password)) {
-      alert("Password must contain at least one special character");
-      return;
-    }
-
-    if (user.password !== user.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    // Retrieve users from localStorage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if user already exists
-    const userExists = users.some((existingUser) => existingUser.email === user.email);
-    if (userExists) {
-      alert("User already exists! Please login.");
-      return;
-    }
-
-    // Add new user to the array
-    users.push({
-      email: user.email,
-      username: user.username,
-      password: user.password,
-    });
-
-    // Save updated users array back to localStorage
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Sign up successful! Please log in.");
-    navigate("/login");
-  };
 
   return (
     <>
@@ -86,15 +46,18 @@ export default function SignUp() {
         <div className="xyz">
           <div className="signup-form">
             <p className="abc">Sign Up</p>
-            <form className="signup-mainform" onSubmit={handleSubmit}>
+            <form className="signup-mainform">
               <div className="emailid">
                 <input
                   type="email"
                   placeholder="Email Id"
                   name="email"
+                  value={email}
                   required
-                  onChange={handleChange}
-                  value={user.email}
+                  onChange={(e)=>setEmail(e.target.value)
+                    
+                  }
+
                 />
               </div>
               <div className="emailid">
@@ -102,9 +65,9 @@ export default function SignUp() {
                   type="text"
                   placeholder="Username"
                   name="username"
+                  value={username}
                   required
-                  onChange={handleChange}
-                  value={user.username}
+                  onChange={(e)=>setUsername(e.target.value)}
                 />
               </div>
               <div className="emailid">
@@ -112,23 +75,23 @@ export default function SignUp() {
                   type="password"
                   placeholder="Password"
                   name="password"
+                  value={password}
                   required
-                  onChange={handleChange}
-                  value={user.password}
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
               </div>
               <div className="emailid">
                 <input
                   type="password"
                   placeholder="Confirm Password"
-                  name="confirmPassword" // ✅ Fixed name
+                  name="confirmPassword"
+                  value={confirmPassword}
                   required
-                  onChange={handleChange}
-                  value={user.confirmPassword}
+                  onChange={(e)=>setconfirmPassword(e.target.value)}
                 />
               </div>
               <div className="button">
-                <button type="submit">Sign Up</button>
+                <button type="submit" onClick={create}>Sign Up</button>
               </div>
             </form>
             <p className="next">
@@ -138,7 +101,7 @@ export default function SignUp() {
           <div className="google">
             <div className="google1">
               <i className="fa-brands fa-google"></i>
-              <button onClick={handleLogin}>
+              <button>
                 <Link to={"/login"}>Sign Up using Google</Link>
               </button>
             </div>

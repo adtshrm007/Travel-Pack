@@ -7,7 +7,7 @@ import Destination1 from "./Components/Destination1";
 import Destination4 from "./Components/Destination4";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
-
+import SignUpWithPhoneNumber from "./Components/SignUpWithPhoneNumber"
 const root = createRoot(document.querySelector('.root'));
 root.render(
     <BrowserRouter>
@@ -19,6 +19,7 @@ root.render(
       <Route path="/destination4" element={<Destination4 />} />
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/SignUpWithPhoneNumber" element={<SignUpWithPhoneNumber/>}/>
     </Routes>
   </BrowserRouter>
 );
