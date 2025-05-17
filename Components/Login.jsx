@@ -2,52 +2,43 @@ import LoginVideo from "url:../assest/LoginVideo.mp4";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default function Login() {
-
-
-
-  const [credentials, setCredentials] = useState({
-    username: "",
-    password: "",
-  });
-
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    console.log(`Changing ${e.target.name}: ${e.target.value}`); // ✅ Debugging log
-    setCredentials((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value, // ✅ Ensure name attributes match
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // ✅ Prevent form reload
-
-    console.log("Submitting credentials:", credentials);
-
-    // ✅ Retrieve users correctly
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    console.log("Stored users:", users);
-
-    // ✅ Find user by username
-    const user = users.find((u) => u.username === credentials.username);
-
-    if (!user) {
-      alert("User not found! Please sign up.");
-      return;
+  const firebaseConfig={
+      apiKey: "AIzaSyAIvfzZRIf1Nz-inlkUjS91EW9j7m6g39U",
+      authDomain: "travel-pack-cf40d.firebaseapp.com",
+      projectId: "travel-pack-cf40d",
+      storageBucket: "travel-pack-cf40d.firebasestorage.app",
+      messagingSenderId: "519574931748",
+      appId: "1:519574931748:web:a4c582704a39320f6d8bb1",
+      measurementId: "G-N6QF3CRSP6"
+  
     }
+  
+    const navigate=useNavigate();
+  
+    const app=initializeApp(firebaseConfig)
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+    const auth = getAuth(app);  
+  const handleLogin = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
 
-    // ✅ Check password
-    if (user.password === credentials.password) {
-      alert("Login successful!");
-      localStorage.setItem("loggedInUser", credentials.username); // Store session
-      navigate("/destination1"); // Redirect to dashboard
-    } else {
-      alert("Incorrect password!");
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password );
+      console.log("User Logged In:", userCredential.user);
+      alert("Login Successful");  
+      navigate("/destination1");
+    } catch (error) {   
+      console.error("Login Error:", error.message);
+      alert(error.message);
     }
-  };
+  }
 
+
+
+  
 
   return (
     <>
@@ -66,15 +57,16 @@ export default function Login() {
       <div className="login-form">
         <p className="abc">LOGIN</p>
         {/* ✅ Use onSubmit on the form */}
-        <form className="login-mainform" onSubmit={handleSubmit}>
+        <form className="login-mainform" onSubmit={handleLogin}>
+         
           <div className="username">
             <input
               type="text"
-              placeholder="Username"
-              name="username"
-              required
-              onChange={handleChange}
-              value={credentials.username}
+              placeholder="Email Id"
+              name="email"
+              value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="username">
@@ -82,10 +74,13 @@ export default function Login() {
               type="password"
               placeholder="Password"
               name="password"
-              required
-              onChange={handleChange}
-              value={credentials.password}
+              value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
             />
+          </div>
+          <div className="forgot">
+            
           </div>
           <div className="button">
             {/* ✅ Ensure type="submit" */}

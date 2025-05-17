@@ -4,8 +4,18 @@ import { Link } from "react-router";
 import { NavLink } from "react-router";
 import React from "react";
 import { useState } from "react";
+import Login from "./Login";
+import {getAuth} from "firebase/auth";
 export default function Destination1() {
-  const [activeNumber, setActiveNumber] = useState("01");
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if(user){
+    console.log("User Profile Photo:", user.photoURL);
+    console.log("User Email:", user.email); 
+    console.log("User Name:", user.displayName);
+  }
+
   return (
     <div className="Main">
       <video autoPlay loop muted playsInline className="background-video">
