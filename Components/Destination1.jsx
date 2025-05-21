@@ -5,14 +5,25 @@ import { NavLink } from "react-router";
 import React from "react";
 import { useState } from "react";
 import Login from "./Login";
-import {getAuth} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 export default function Destination1() {
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIvfzZRIf1Nz-inlkUjS91EW9j7m6g39U",
+    authDomain: "travel-pack-cf40d.firebaseapp.com",
+    projectId: "travel-pack-cf40d",
+    storageBucket: "travel-pack-cf40d.firebasestorage.app",
+    messagingSenderId: "519574931748",
+    appId: "1:519574931748:web:a4c582704a39320f6d8bb1",
+    measurementId: "G-N6QF3CRSP6",
+  };
+  const app = initializeApp(firebaseConfig);
 
-  const auth = getAuth();
+  const auth = getAuth(app);
   const user = auth.currentUser;
-  if(user){
+  if (user) {
     console.log("User Profile Photo:", user.photoURL);
-    console.log("User Email:", user.email); 
+    console.log("User Email:", user.email);
     console.log("User Name:", user.displayName);
   }
 
@@ -114,6 +125,14 @@ export default function Destination1() {
               Delhi
             </p>
           </div>
+        </div>
+      </div>
+      <div className="socialMediaHandles">
+        <div className="socialMedia">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-pinterest"></i>
         </div>
       </div>
     </div>

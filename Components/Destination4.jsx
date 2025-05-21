@@ -107,6 +107,14 @@ export default function Destination4() {
           </div>
         </div>
       </div>
+      <div className="socialMediaHandles">
+        <div className="socialMedia">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-pinterest"></i>
+        </div>
+      </div>
     </div>
   );
 }

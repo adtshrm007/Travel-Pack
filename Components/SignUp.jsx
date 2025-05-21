@@ -1,51 +1,61 @@
 import SignUpVideo from "url:../assest/SignUpVideo.mp4";
-import { Link } from "react-router"
-import { initializeApp } from "firebase/app"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { auth } from "../firebaseconfig";
 
 export default function SignUp() {
+  const navigate = useNavigate();
 
-  const firebaseConfig={
-    apiKey: "AIzaSyAIvfzZRIf1Nz-inlkUjS91EW9j7m6g39U",
-    authDomain: "travel-pack-cf40d.firebaseapp.com",
-    projectId: "travel-pack-cf40d",
-    storageBucket: "travel-pack-cf40d.firebasestorage.app",
-    messagingSenderId: "519574931748",
-    appId: "1:519574931748:web:a4c582704a39320f6d8bb1",
-    measurementId: "G-N6QF3CRSP6"
-
-  }
-
-  const navigate=useNavigate();
-
-  const app=initializeApp(firebaseConfig)
-  
-  const [email,setEmail]=useState('')
-  const [username,setUsername]=useState('')
-  const [password,setPassword]=useState('')
-  const [confirmPassword,setconfirmPassword]=useState('')
-
-  const auth = getAuth(app);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
 
   const handleSignUp = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     if (password !== confirmPassword) {
       alert("Passwords do not match! ❌");
       return;
     }
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User Created:", userCredential.user);
-      alert("Signup Successful");
+    if (password.length < 8) {
+      alert("Password should be at least 8 characters long");
+      return;
+    }
 
-     
+    if (
+      !/[a-z]/.test(password) ||
+      !/[A-Z]/.test(password) ||
+      !/[0-9]/.test(password)
+    ) {
+      alert(
+        "Password must include at least one lowercase letter, one uppercase letter, and one number."
+      );
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("User Created:", userCredential.user);
+
+      await sendEmailVerification(userCredential.user);
+      alert(
+        "Signup successful. A verification email has been sent to your inbox 📧"
+      );
+
       navigate("/login");
     } catch (error) {
-      console.error("Signup Error:", error.message);
+      console.error("Signup error:", error.message);
       alert(error.message);
     }
   };
@@ -56,7 +66,7 @@ export default function SignUp() {
         <source src={SignUpVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      
+
       <div className="xyz">
         <div className="signup-form">
           <p className="abc">Sign Up</p>
@@ -103,7 +113,8 @@ export default function SignUp() {
             </div>
 
             <div className="button">
-              <button type="submit">Sign Up</button> {/* Fix: Use form submit */}
+              <button type="submit">Sign Up</button>{" "}
+              {/* Fix: Use form submit */}
             </div>
           </form>
 
@@ -121,11 +132,17 @@ export default function SignUp() {
           </div>
           <div className="google1">
             <i className="fa-brands fa-facebook"></i>
-            <p>Sign Up using Facebook</p>
+            <button>
+              <p>Sign Up using Facebook</p>
+            </button>
           </div>
           <div className="google1">
             <i className="fa-solid fa-phone"></i>
-            <Link to={"/SignUpWithPhoneNumber"}>Sign Up using Phone Number</Link>
+            <button>
+              <Link to={"/SignUpWithPhoneNumber"}>
+                Sign Up using Phone Number
+              </Link>
+            </button>
           </div>
         </div>
       </div>
