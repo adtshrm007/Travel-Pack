@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static-build", "config": {} }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "outputDirectory": "dist"
+}
+
+
