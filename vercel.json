@@ -5,7 +5,12 @@
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
   ],
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  
+  "buildCommand": "npm run build"
+
+
+  
 }
 
 
