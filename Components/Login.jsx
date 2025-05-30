@@ -2,8 +2,10 @@ import LoginVideo from "url:../assest/LoginVideo.mp4";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import { initializeApp } from "firebase/app";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+const provider = new GoogleAuthProvider();
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,14 +21,47 @@ export default function Login() {
         email,
         password
       );
-      console.log("User Logged In:", userCredential.user);
+      const user=auth.currentUser
+      
+      if(user)
+      {
+        alert("Already signed in")
+        navigate("/destination1")
+      }
+      if (!auth.currentUser.emailVerified) {
+  alert("Please verify your email first.");
+  // Optionally log them out
+}
+else if(auth.currentUser)
+{
+  console.log(userCredential.user);
+}
+else
+{
+  console.log("User Logged In:", userCredential.user);
       alert("Login Successful");
       navigate("/destination1");
+      
+}
+
+
+
     } catch (error) {
       console.error("Login Error:", error.message);
       alert(error.message);
     }
   };
+
+  const handleGoogleSignIn = async (event) => {
+      event.preventDefault();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Google Sign-In Success:", result.user);
+        navigate("/destination1");
+      } catch (error) {
+        alert(error.message);
+      }
+    };
 
   return (
     <>
@@ -77,6 +112,14 @@ export default function Login() {
             Don't have an account? <Link to="/signup">Sign up</Link>
           </p>
         </div>
+
+        <div className="google">
+          <div className="google1">
+            <i className="fa-brands fa-google"></i>
+            <button onClick={handleGoogleSignIn}>Sign Up using Google</button>
+          </div>
+        </div>
+        
       </div>
     </>
   );

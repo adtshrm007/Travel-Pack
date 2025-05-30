@@ -5,8 +5,11 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { useState } from "react";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router";
 import { auth } from "../firebaseconfig";
+
+const provider = new GoogleAuthProvider();
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -52,8 +55,6 @@ export default function SignUp() {
       alert(
         "Signup successful. A verification email has been sent to your inbox 📧"
       );
-
-      navigate("/login");
     } catch (error) {
       console.error("Signup error:", error.message);
       alert(error.message);
@@ -66,8 +67,16 @@ export default function SignUp() {
         <source src={SignUpVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      
 
       <div className="xyz">
+        <div className="header">
+        <div className="logo">
+          <p>
+            <i className="fa-solid fa-earth-americas"></i> Travel Pack
+          </p>
+        </div>
+      </div>
         <div className="signup-form">
           <p className="abc">Sign Up</p>
 
@@ -121,29 +130,6 @@ export default function SignUp() {
           <p className="next">
             Have an account? <Link to="/login">Login</Link>
           </p>
-        </div>
-
-        <div className="google">
-          <div className="google1">
-            <i className="fa-brands fa-google"></i>
-            <button>
-              <Link to={"/login"}>Sign Up using Google</Link>
-            </button>
-          </div>
-          <div className="google1">
-            <i className="fa-brands fa-facebook"></i>
-            <button>
-              <p>Sign Up using Facebook</p>
-            </button>
-          </div>
-          <div className="google1">
-            <i className="fa-solid fa-phone"></i>
-            <button>
-              <Link to={"/SignUpWithPhoneNumber"}>
-                Sign Up using Phone Number
-              </Link>
-            </button>
-          </div>
         </div>
       </div>
     </div>

@@ -2,13 +2,31 @@ import VideoBg from "url:../assest/CoverVideo4.mp4";
 import image1 from "../assest/AustraliaImage.jpg";
 import { Link } from "react-router";
 import { NavLink } from "react-router";
-import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { auth } from "../firebaseconfig";
+import { onAuthStateChanged } from "firebase/auth";
 export default function Destination4() {
-  const [activeNumber, setActiveNumber] = useState("04");
+  const [userInfo, setUserInfo] = useState({email:"",photoURL:""});
+  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUserInfo({
+            email:user.email,
+            photoURL:user.email.charAt(0).toUpperCase(),
+          });
+        } else {
+          setUserInfo({email: "Guest",
+            photoURL: <i className="fa-regular fa-circle-user"></i>,}); // Not logged in
+        }
+      });
+  
+  
+      return () => unsubscribe();
+    }, []);
   return (
     <div className="Main">
-      <video autoPlay loop muted playsInline className="background-video">
+      <video autoPlay loop muted playsInline preload="none" className="background-video">
         <source src={VideoBg} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -22,19 +40,21 @@ export default function Destination4() {
       <div className="header">
         <div className="logo">
           <p>
-            <i class="fa-solid fa-earth-americas"></i> Travel Pack
+            <i className="fa-solid fa-earth-americas"></i> Travel Pack
           </p>
         </div>
         <div className="options">
-          <p className="option">Home</p>
-          <p className="option">Destinations</p>
+          <Link to="/"><p className="option">Home</p></Link>
+          <Link to="/destination1"><p className="option">Destinations</p></Link>
           <p className="option">Blog</p>
           <p className="option">Contact</p>
         </div>
         <div className="login">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <div className="user">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </div>
           <Link to="/login">
-            <i class="fa-solid fa-user"></i>
+            <div className="user">{userInfo.photoURL}</div>
           </Link>
         </div>
       </div>
@@ -78,7 +98,7 @@ export default function Destination4() {
               and create memories that last a lifetime.
             </p>
             <div className="read">
-              <i class="fa-sharp fa-solid fa-circle-down"></i>
+              <i className="fa-sharp fa-solid fa-circle-down"></i>
               <p>Read More</p>
             </div>
           </div>
@@ -109,10 +129,10 @@ export default function Destination4() {
       </div>
       <div className="socialMediaHandles">
         <div className="socialMedia">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-x-twitter"></i>
-          <i class="fa-brands fa-pinterest"></i>
+          <i className="fa-brands fa-facebook"></i>
+          <i className="fa-brands fa-instagram"></i>
+          <i className="fa-brands fa-x-twitter"></i>
+          <i className="fa-brands fa-pinterest"></i>
         </div>
       </div>
     </div>

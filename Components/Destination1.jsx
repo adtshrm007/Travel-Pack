@@ -2,34 +2,32 @@ import VideoBg from "url:../assest/CoverVideo.mp4";
 import image1 from "../assest/IndiaImage.jpg";
 import { Link } from "react-router";
 import { NavLink } from "react-router";
-import React from "react";
-import { useState } from "react";
-import Login from "./Login";
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { useState, useEffect } from "react";
+import { auth } from "../firebaseconfig";
 export default function Destination1() {
-  const firebaseConfig = {
-    apiKey: "AIzaSyAIvfzZRIf1Nz-inlkUjS91EW9j7m6g39U",
-    authDomain: "travel-pack-cf40d.firebaseapp.com",
-    projectId: "travel-pack-cf40d",
-    storageBucket: "travel-pack-cf40d.firebasestorage.app",
-    messagingSenderId: "519574931748",
-    appId: "1:519574931748:web:a4c582704a39320f6d8bb1",
-    measurementId: "G-N6QF3CRSP6",
-  };
-  const app = initializeApp(firebaseConfig);
+  const [userInfo, setUserInfo] = useState({ email: "", photoURL: "" });
 
-  const auth = getAuth(app);
-  const user = auth.currentUser;
-  if (user) {
-    console.log("User Profile Photo:", user.photoURL);
-    console.log("User Email:", user.email);
-    console.log("User Name:", user.displayName);
-  }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserInfo({
+          email: user.email,
+          photoURL: user.email.charAt(0).toUpperCase(),
+        });
+      } else {
+        setUserInfo({
+          email: "Guest",
+          photoURL: <i className="fa-regular fa-circle-user"></i>,
+        }); // Not logged in
+      }
+    });
 
+    return () => unsubscribe();
+  }, []);
   return (
     <div className="Main">
-      <video autoPlay loop muted playsInline className="background-video">
+      <video autoPlay loop muted playsInline preload="none" className="background-video">
         <source src={VideoBg} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -43,19 +41,26 @@ export default function Destination1() {
       <div className="header">
         <div className="logo">
           <p>
-            <i class="fa-solid fa-earth-americas"></i> Travel Pack
+            <i className="fa-solid fa-earth-americas"></i> Travel Pack
           </p>
         </div>
         <div className="options">
-          <p className="option">Home</p>
-          <p className="option">Destinations</p>
+          <Link to="/">
+            <p className="option">Home</p>
+          </Link>
+
+          <Link to="/destination1">
+            <p className="option">Destinations</p>
+          </Link>
           <p className="option">Blog</p>
           <p className="option">Contact</p>
         </div>
         <div className="login">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <div className="user">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
           <Link to="/login">
-            <i class="fa-solid fa-user"></i>
+            <div className="user">{userInfo.photoURL}</div>
           </Link>
         </div>
       </div>
@@ -97,10 +102,10 @@ export default function Destination1() {
               We have collected the best ideas for planning a trip that will
               help you to feel the history and beauty of this wonderful country.
             </p>
-            <div className="read">
-              <i class="fa-sharp fa-solid fa-circle-down"></i>
+            <Link to="/ReadMore"><div className="read">
+              <i className="fa-sharp fa-solid fa-circle-down"></i>
               <p>Read More</p>
-            </div>
+            </div></Link>
           </div>
         </div>
         <div className="info">
@@ -129,10 +134,10 @@ export default function Destination1() {
       </div>
       <div className="socialMediaHandles">
         <div className="socialMedia">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-x-twitter"></i>
-          <i class="fa-brands fa-pinterest"></i>
+          <i className="fa-brands fa-facebook"></i>
+          <i className="fa-brands fa-instagram"></i>
+          <i className="fa-brands fa-x-twitter"></i>
+          <i className="fa-brands fa-pinterest"></i>
         </div>
       </div>
     </div>
