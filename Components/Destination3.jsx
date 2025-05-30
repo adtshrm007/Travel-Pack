@@ -1,5 +1,5 @@
 import VideoBg from "url:../assest/CoverVideo3.mp4";
-import image2 from "../assest/SwitzerLandImage.jpg";
+import image2 from "../assest/SwitzerlandImage.jpg";
 import { Link } from "react-router";
 import { NavLink } from "react-router";
 import { onAuthStateChanged } from "firebase/auth";
