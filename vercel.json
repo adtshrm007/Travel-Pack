@@ -1,16 +1,10 @@
 {
   "builds": [
-    { "src": "index.html", "use": "@vercel/static-build", "config": {} }
+    { "src": "index.html", "use": "@vercel/static-build" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
   ],
-  "outputDirectory": "dist",
-  
-  "buildCommand": "npm run build"
-
-
-  
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
-
-
