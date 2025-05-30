@@ -16,6 +16,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
     "axios": "^1.8.1",
+    "parcel": "^2.13.3",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
