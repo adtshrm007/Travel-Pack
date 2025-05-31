@@ -1,15 +1,19 @@
 {
   "name": "jet-set-journey",
   "version": "1.0.0",
+  "description": "",
+  "homepage": "https://adtshrm007.github.io/travel-pack",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url ./",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "buffer": "^6.0.3",
+    "gh-pages": "^6.3.0",
     "parcel": "^2.15.2",
     "process": "^0.11.10"
   },
@@ -26,6 +30,5 @@
     "react-dom": "^19.1.0",
     "react-router": "^7.2.0",
     "react-router-dom": "^7.2.0"
-  },
-  "description": ""
+  }
 }
