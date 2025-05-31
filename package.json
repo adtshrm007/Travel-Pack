@@ -3,20 +3,19 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
-    "build":"parcel build index.html"
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "buffer": "^6.0.3",
-    "parcel": "^2.13.3",
+    "parcel": "^2.15.2",
     "process": "^0.11.10"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
     "axios": "^1.8.1",
-    "parcel": "^2.13.3",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
