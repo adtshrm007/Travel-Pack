@@ -1,4 +1,4 @@
-import SignUpVideo from "url:../assest/SignUpVideo.mp4";
+import SignUpVideo from "url:../asset/SignUpVideo.mp4";
 import { Link } from "react-router";
 import {
   createUserWithEmailAndPassword,
@@ -55,6 +55,8 @@ export default function SignUp() {
       alert(
         "Signup successful. A verification email has been sent to your inbox 📧"
       );
+
+      navigate("/login");
     } catch (error) {
       console.error("Signup error:", error.message);
       alert(error.message);

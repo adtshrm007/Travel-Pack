@@ -1,4 +1,4 @@
-import LoginVideo from "url:../assest/LoginVideo.mp4";
+import LoginVideo from "url:../asset/LoginVideo.mp4";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -21,31 +21,22 @@ export default function Login() {
         email,
         password
       );
-      const user=auth.currentUser
-      
-      if(user)
-      {
-        alert("Already signed in")
-        navigate("/destination1")
+      const user = auth.currentUser;
+
+      if (user) {
+        alert("Already signed in");
+        navigate("/destination1");
       }
       if (!auth.currentUser.emailVerified) {
-  alert("Please verify your email first.");
-  // Optionally log them out
-}
-else if(auth.currentUser)
-{
-  console.log(userCredential.user);
-}
-else
-{
-  console.log("User Logged In:", userCredential.user);
-      alert("Login Successful");
-      navigate("/destination1");
-      
-}
-
-
-
+        alert("Please verify your email first.");
+        // Optionally log them out
+      } else if (auth.currentUser) {
+        console.log(userCredential.user);
+      } else {
+        console.log("User Logged In:", userCredential.user);
+        alert("Login Successful");
+        navigate("/destination1");
+      }
     } catch (error) {
       console.error("Login Error:", error.message);
       alert(error.message);
@@ -53,15 +44,15 @@ else
   };
 
   const handleGoogleSignIn = async (event) => {
-      event.preventDefault();
-      try {
-        const result = await signInWithPopup(auth, provider);
-        console.log("Google Sign-In Success:", result.user);
-        navigate("/destination1");
-      } catch (error) {
-        alert(error.message);
-      }
-    };
+    event.preventDefault();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("Google Sign-In Success:", result.user);
+      navigate("/destination1");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <>
@@ -119,7 +110,6 @@ else
             <button onClick={handleGoogleSignIn}>Sign Up using Google</button>
           </div>
         </div>
-        
       </div>
     </>
   );

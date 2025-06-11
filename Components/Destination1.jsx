@@ -1,12 +1,22 @@
-import VideoBg from "url:../assest/CoverVideo.mp4";
-import image1 from "../assest/IndiaImage.jpg";
+import VideoBg from "url:../asset/CoverVideo.mp4";
 import { Link } from "react-router";
+import image1 from "url:../asset/IndiaImage1.jpg";
+
+
+
 import { NavLink } from "react-router";
+
 import { onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { auth } from "../firebaseconfig";
 export default function Destination1() {
   const [userInfo, setUserInfo] = useState({ email: "", photoURL: "" });
+
+  const [open, setOpen] = useState(false);
+
+  const handelMenuToggle = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -25,9 +35,20 @@ export default function Destination1() {
 
     return () => unsubscribe();
   }, []);
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  console.log("Image URL:", image1);
+
   return (
     <div className="Main">
-      <video autoPlay loop muted playsInline preload="none" className="background-video">
+      <video autoPlay loop muted playsInline className="background-video">
         <source src={VideoBg} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -39,31 +60,44 @@ export default function Destination1() {
         <div className="line"></div>
       </div>
       <div className="header">
-        <div className="logo">
-          <p>
-            <i className="fa-solid fa-earth-americas"></i> Travel Pack
-          </p>
-        </div>
-        <div className="options">
-          <Link to="/">
-            <p className="option">Home</p>
-          </Link>
-
-          <Link to="/destination1">
-            <p className="option">Destinations</p>
-          </Link>
-          <p className="option">Blog</p>
-          <p className="option">Contact</p>
-        </div>
-        <div className="login">
-          <div className="user">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div className="logo">
+            <p>
+              <i className="fa-solid fa-earth-americas"></i> Travel Pack
+            </p>
           </div>
-          <Link to="/login">
-            <div className="user">{userInfo.photoURL}</div>
-          </Link>
+          <div className="options">
+            <Link to="/">
+              <p className="option">Home</p>
+            </Link>
+
+            <Link to="/destination1">
+              <p className="option">Destinations</p>
+            </Link>
+            <p className="option">Blog</p>
+            <p className="option">Contact</p>
+          </div>
+          <div className="login">
+            <div className="user1">
+              <i className="fa-solid fa-bars" onClick={handelMenuToggle}></i>
+            </div>
+
+            <Link to="/login">
+              <div className="user">{userInfo.photoURL}</div>
+            </Link>
+          </div>
         </div>
-      </div>
+        {open && (
+          <div className="small_menu">
+            <Link to="/">
+            <p className="option1">Home</p>
+            </Link>
+            <Link to="/destination1">
+            <p className="option1">Destinations</p>
+            </Link>
+            <p className="option1">Blog</p>
+            <p className="option1">Contact</p>
+          </div>
+        )}
       <div className="numbers">
         <NavLink
           to="/destination1"
@@ -102,10 +136,12 @@ export default function Destination1() {
               We have collected the best ideas for planning a trip that will
               help you to feel the history and beauty of this wonderful country.
             </p>
-            <Link to="/ReadMore"><div className="read">
-              <i className="fa-sharp fa-solid fa-circle-down"></i>
-              <p>Read More</p>
-            </div></Link>
+            <Link to="/ReadMore">
+              <div className="read">
+                <i className="fa-sharp fa-solid fa-circle-down"></i>
+                <p>Read More</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="info">

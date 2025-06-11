@@ -1,32 +1,46 @@
-import VideoBg from "url:../assest/CoverVideo2.mp4";
-import image2 from "../assest/NorwayImage.jpg";
+import VideoBg from "url:../asset/CoverVideo2.mp4";
+import image2 from "url:../asset/NorwayImage.jpg";
 import { Link } from "react-router";
 import { onAuthStateChanged } from "firebase/auth";
 import { NavLink } from "react-router";
 import { auth } from "../firebaseconfig";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 export default function Destination2() {
-  const [userInfo, setUserInfo] = useState({email:"",photoURL:""});
+  const [userInfo, setUserInfo] = useState({ email: "", photoURL: "" });
+
+  const [open, setOpen] = useState(false);
+
+  const handelMenuToggle = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserInfo({
-          email:user.email,
-          photoURL:user.email.charAt(0).toUpperCase(), 
+          email: user.email,
+          photoURL: user.email.charAt(0).toUpperCase(),
         });
       } else {
-        setUserInfo({email: "Guest",
-          photoURL: <i className="fa-regular fa-circle-user"></i>,}); // Not logged in
+        setUserInfo({
+          email: "Guest",
+          photoURL: <i className="fa-regular fa-circle-user"></i>,
+        }); // Not logged in
       }
     });
-
 
     return () => unsubscribe();
   }, []);
   return (
     <div className="Main">
-      <video autoPlay loop muted playsInline preload="none" className="background-video">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="none"
+        className="background-video"
+      >
         <source src={VideoBg} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -44,21 +58,39 @@ export default function Destination2() {
           </p>
         </div>
         <div className="options">
-          <Link to="/"><p className="option">Home</p></Link>
-          <Link to="/destination1"><p className="option">Destinations</p></Link>
+          <Link to="/">
+            <p className="option">Home</p>
+          </Link>
+
+          <Link to="/destination1">
+            <p className="option">Destinations</p>
+          </Link>
           <p className="option">Blog</p>
           <p className="option">Contact</p>
         </div>
         <div className="login">
-
-        <div className="user">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div className="user1">
+            <i className="fa-solid fa-bars" onClick={handelMenuToggle}></i>
           </div>
+
           <Link to="/login">
             <div className="user">{userInfo.photoURL}</div>
           </Link>
         </div>
       </div>
+      {open && (
+        <div className="small_menu">
+          <Link to="/">
+            <p className="option1">Home</p>
+          </Link>
+          <Link to="/destination1">
+            <p className="option1">Destinations</p>
+          </Link>
+          <p className="option1">Blog</p>
+          <p className="option1">Contact</p>
+        </div>
+      )}
+
       <div className="numbers">
         <NavLink
           to="/destination1"
